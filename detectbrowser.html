@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>detectbrowser</title>
+		<script type="text/javascript">
+			function detectBrowser() {
+				var browser = navigator.appName;
+				var b_version = navigator.appVersion;
+				var version = parseFloat(b_version);
+
+				document.write("你的浏览器是：" + browser + "<br />");
+				document.write("浏览器版本号：" + version);
+
+				if((browser == "Netscape" || browser == "Microsoft Internet Explorer") && (version >= 4)) {
+					alert("Your browser is good enough!")
+				} else {
+					alert("It's time to upgrade your browser!")
+				}
+			}
+		</script>
+	</head>
+	<body onload="detectBrowser()"></body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>testcookie</title>
+		<script type="text/javascript">
+			// 读取COOKIE
+			function getCookie(c_name) {
+				if(document.cookie.length > 0) {
+					c_start = document.cookie.indexOf(c_name + "=");
+					if(c_start != -1) {
+						c_start = c_start + c_name.length + 1;
+						c_end = document.cookie.indexOf(";", c_start);
+						if(c_end == -1) {
+							c_end = document.cookie.length;
+						}
+						return unescape(document.cookie.substring(c_start, c_end));
+					}
+				}
+				return "";
+			}
+
+			// 存储访问者信息的函数
+			function setCookie(c_name, value, expiredays) {
+				var exdate = new Date();
+				//设置天数
+				exdate.setDate(exdate.getDate() + expiredays);
+				document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : "; expires=" + exdate.toGMTString());
+
+			}
+
+			// 检查cookie
+			function checkCookie() {
+				username = getCookie('username');
+				if(username != null && username != "") {
+					alert("Welcome again " + username + "!");
+				} else {
+					username = prompt("Please enter your name:", "");
+					if(username != null && username != "") {
+
+						setCookie('username', username, 1);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload="=checkCookie()">
+
+	</body>
+</html>

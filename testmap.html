@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>testmap</title>
+		<script type="text/javascript">
+			var txt1 = "直到 20 世纪 60 年代，金星一直被认为是地球的孪生姐妹，因为金星是离我们最近的行星，同时还由于两者拥有很多共同的特征。";
+			var txt2 = "从地球上是很难研究水星的，这是由于它和太阳的距离总是很近。";
+			var txt3 = "太阳和类似木星这样的气态行星是到目前为止太阳系中最大的物体。";
+			//显示信息
+			function displayTxt(planetsName) {
+				// if(planetsName == "venus") {
+				// document.getElementById("desc").innerHTML = txt1;
+				// } else if(planetsName == "mercury") {
+				// document.getElementById("desc").innerHTML = txt2;
+				// } else {
+				// document.getElementById("desc").innerHTML = txt3;
+				// }
+				switch (planetsName) {
+					case "venus":
+						document.getElementById("desc").innerHTML = txt1;
+						break;
+					case "mercury":
+						document.getElementById("desc").innerHTML = txt2;
+						break;
+					case "sun":
+						document.getElementById("desc").innerHTML = txt3;
+						break;
+					default:
+						document.getElementById("desc").innerHTML = "没有可以显示的信息内容。";
+				}
+			}
+
+			//隐藏信息
+			function hiddenTxt() {
+				document.getElementById("desc").innerHTML = "";
+			}
+		</script>
+	</head>
+	<body>
+		<img src="images/eg_planets.jpg" border="0" usemap="#planetMap" alt="Planets"/>
+		<map id="planetMap">
+			<area id="venus" shape="circle" coords="180,139,14" onmouseover="displayTxt(id)" onmouseout="hiddenTxt()" href="../" target="_blank" alt="Venus(金星)" />
+			<area id="mercury" shape="circle" coords="129,161,10" onmouseover="displayTxt(id)" onmouseout="hiddenTxt()" href="../" target="_blank" alt="Mercury(水星)" />
+			<area id="sun" shape="rect" coords="0,0,110,260" onmouseover="displayTxt(id)" onmouseout="hiddenTxt()" href="../" target="_blank" alt="Sun(太阳)" />
+		</map>
+		<p id="desc"> </p>
+	</body>
+</html>
